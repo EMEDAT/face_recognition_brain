@@ -15,7 +15,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      Input: '',
+      input: '',
       button: '',
       imageUrl: '',
       box: {},
@@ -50,8 +50,6 @@ this.setState({input: event.target.value});
 
 onButtonSubmit = () => {
 this.setState({imageUrl: this.state.input});
-
-
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -146,7 +144,7 @@ this.setState({route: route});
     const { isSignedIn, imageUrl, route, box } = this.state;
     return (
       <div className="App">
-        <BackgroundAnimation className="particles" />
+        <BackgroundAnimation />
         <Navigation isSignedIn={isSignedIn} onRouteChange={this.onRouteChange}/>
         { route === 'home' 
       ? <>  <Logo />
@@ -154,10 +152,10 @@ this.setState({route: route});
             <ImageLinkForm 
             onInputChange={this.onInputChange} 
             onButtonSubmit={this.onButtonSubmit}/>
-            <FaceRecognition box={box} imageUrl={imageUrl} ref={this.imageRef}/>
+            <FaceRecognition box={box} imageUrl={imageUrl} />
         </>
       : (
-        this.state.route === 'signin'
+        route === 'signin'
         ? <Signin onRouteChange={this.onRouteChange}/>
         : <Register onRouteChange={this.onRouteChange}/>
       )

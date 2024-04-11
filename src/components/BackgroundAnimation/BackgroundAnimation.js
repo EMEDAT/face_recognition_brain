@@ -14,7 +14,7 @@ const BackgroundAnimation = () => {
     }, []);
 
     const particlesLoaded = useCallback(async container => {
-        await console.log(container);
+        console.log(container);
     }, []);
 
     return (
@@ -32,7 +32,7 @@ const BackgroundAnimation = () => {
                 interactivity: {
                     events: {
                         onClick: {
-                            enable: true,
+                            enable: false,
                             mode: "push",
                         },
                         onHover: {
@@ -43,7 +43,7 @@ const BackgroundAnimation = () => {
                     },
                     modes: {
                         push: {
-                            quantity: 4,
+                            quantity: 1,
                         },
                         repulse: {
                             distance: 200,
